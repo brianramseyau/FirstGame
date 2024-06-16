@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf51bgbrilvhi"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_cc105"]
+[ext_resource type="Texture2D" uid="uid://oqpr7tcvous8" path="res://assets/sprites/coin.png" id="1_w32uk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvpav"]
+atlas = ExtResource("1_w32uk")
+region = Rect2(0, 0, 16, 16)
+
+[node name="HUD" type="Node"]
+script = ExtResource("1_cc105")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_yvpav")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="ScoreBoard" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
